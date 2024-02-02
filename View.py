@@ -133,7 +133,6 @@ class View(Tk):
             else:
                 cheater = 'Ei'
 
-
             date_time = datetime.strptime(player.date_time, '%Y-%m-%d %H:%M:%S').strftime('%d.%m.%Y %H:%M:%S')
 
             #strptime() ja strftime()
