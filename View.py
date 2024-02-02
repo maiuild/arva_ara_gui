@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk, simpledialog, messagebox
 import tkinter.font as font
 from tkinter.ttk import Treeview
+from datetime import datetime
 
 # View fail on põhiaken
 
@@ -127,7 +128,10 @@ class View(Tk):
         # Tabeli täitmine andmetega
         x = 0
         for player in data:
-            my_table.insert(parent='', index='end', iid=x, values=(player.name, player.steps, player.pc_nr, player.cheater, player.date_time))
+            date_time = datetime.strptime(player.date_time, '%Y-%m-%d %H:%M:%S').strftime('%d.%m.%Y %H:%M:%S')
+
+            #strptime() ja strftime()
+            my_table.insert(parent='', index='end', iid=x, values=(player.name, player.steps, player.pc_nr, player.cheater, date_time))
 
             x += 1
         my_table.pack(fill=BOTH, expand=True)
